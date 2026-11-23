@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-const WEB3FORMS_KEY = "05d0c106-35bd-43c8-9253-9dd62cafd4d4";
+const WEB3FORMS_KEY = "0eb108c7-d3a8-4ed1-a1f5-c7f2e7da993a";
 
 export default function Home() {
   // Estado de la demo interactiva de WhatsApp
