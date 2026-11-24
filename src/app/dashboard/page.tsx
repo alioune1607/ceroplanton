@@ -1,8 +1,9 @@
+import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import DashboardClient from "@/components/DashboardClient";
 
-export default async function DashboardPage() {
+async function DashboardContent() {
   const supabase = await createClient();
   const {
     data: { user },
@@ -35,5 +36,19 @@ export default async function DashboardPage() {
       initialClinic={clinic}
       initialAppointments={appointments || []}
     />
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-slate-50 text-sm text-slate-500">
+          Cargando tu panel de CeroPlantón...
+        </div>
+      }
+    >
+      <DashboardContent />
+    </Suspense>
   );
 }
